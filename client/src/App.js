@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import { Routes, Route, Navigate} from 'react-router';
 import './App.css';
+import Home from './pages/home/home';
+import { createStructuredSelector } from 'reselect';
+import { selectActiveUser } from './redux/user/userSelectors';
+import { connect } from 'react-redux';
+import { useState, useEffect } from 'react';
+import Dashboard from './pages/dashboard/dashboard';
 
-function App() {
+
+function App({user}) {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
+  useEffect(() => {
+    setIsAuthenticated(user);
+
+  }, [user])
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+      
+          <Route path="/" element={ 
+            !isAuthenticated.currentUser ? <Home /> : <Navigate to="/dashboard" />
+          } /> 
+          <Route path="/dashboard" element={
+              isAuthenticated.currentUser ? <Dashboard /> : <Navigate to="/" />
+          }>
+            
+          </Route>
+       
+      </Routes>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  user: selectActiveUser
+})
+
+export default connect(mapStateToProps,null)(App);
