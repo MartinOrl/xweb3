@@ -31,7 +31,9 @@ const WalletContainer = styled.div`
             color: #fff;
         }
     }
-
+    @media screen and (max-width: ${props => props.theme.screen.md}){
+        width: 80%;
+    }
 `
 
 

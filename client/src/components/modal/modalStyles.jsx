@@ -26,6 +26,13 @@ export const ModalContent = styled.div`
     box-sizing: border-box ;
     transition: 300ms ease-in-out ;
     transition-delay: 300ms ;
+    @media screen and (max-width: ${props => props.theme.screen.md}){
+        width: 80%;
+        padding: 48px 48px 64px;
+    }
+    @media screen and (max-width: ${props => props.theme.screen.sm}){
+        padding: 40px 32px 56px;
+    }
 
 `
 
@@ -46,11 +53,32 @@ export const ModalHeading = styled.div`
         opacity: 0.5 ;
         margin: 0 ;
         width: 400px ;
+        line-height: 24px;
     }
     svg{
         position: absolute;
         right: 0;
         top: 0 ;
         cursor: pointer ;
+    }
+    @media screen and (max-width: ${props => props.theme.screen.md}){
+        p{
+            width: 80%;
+        }
+        h1{
+            width: 70%;
+        }
+        svg{
+            right: -16px;
+            top: -4px;
+        }
+    }
+    @media screen and (max-width: ${props => props.theme.screen.sm}){
+        svg{
+            right: 0;
+            top: 4px;
+            width: 32px;
+            height: 32px;
+        }
     }
 `

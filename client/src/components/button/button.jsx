@@ -1,12 +1,12 @@
-import { CustomLink } from "./buttonStyles"
+import { ButtonContainer } from "./buttonStyles"
 
-const MainButton = ({text,action}) => {
+const MainButton = ({action, children}) => {
     return(
-        <CustomLink onClick={() => action()}>
+        <ButtonContainer >
             {
-                text
+                children
             }
-        </CustomLink>
+        </ButtonContainer>
     )
 }
 
