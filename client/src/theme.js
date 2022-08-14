@@ -4,6 +4,7 @@ const theme = {
         primaryHover: '#59A60B',
         secondary: '#272646',
         secondaryOpaque: '#9393A3',
+        error: '#FF0000',
     },
     font: {
 

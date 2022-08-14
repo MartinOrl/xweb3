@@ -1,23 +1,33 @@
 import EditStart from "../../components/editStart/editStart";
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
+import { selectActiveUser } from "../../redux/user/userReducer";
+import WebsiteBuilder from './builder';
 
 
 const EditPage = () => {
 
-    const [hasBeenBuilt, setHasBeenBuilt] = useState(false);
-
-    const params = useLocation()
+    const userTemplateDetails = useSelector(selectActiveUser)?.templateDetails
 
     useEffect(() => {
-        let editState = params.search.replace("?","")
-        setHasBeenBuilt(editState ? true : false)
-    })
+        console.log(userTemplateDetails)
+        return () => {
+            console.log("Cleanup")
+        }
+    }, [])
 
     return(
-        <div>
-            <EditStart />
-        </div>
+        <>  
+            {
+                userTemplateDetails
+                ?
+                <WebsiteBuilder />
+                :
+                <EditStart />
+            }
+      
+        </>
     )
 }
 

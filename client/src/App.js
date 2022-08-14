@@ -41,7 +41,7 @@ function App({user}) {
   }, [location.pathname])
 
   return (
-    <div>
+    <>
       <Routes>
          
           <Route path="/" element={<Home />} />
@@ -50,7 +50,7 @@ function App({user}) {
           <Route path="/edit" element={<EditPage />} />
        
       </Routes>
-    </div>
+    </>
   );
 }
 

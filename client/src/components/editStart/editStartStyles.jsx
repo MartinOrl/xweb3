@@ -29,7 +29,7 @@ export const Buttons = styled.div`
 `
 
 export const StartForm = styled.form`
-    label,input{
+    label,input,button{
         font-family: 'Inter', sans-serif;
         display: block;
     }
@@ -53,6 +53,8 @@ export const StartForm = styled.form`
         width: 75%;
         border-bottom: 1px solid ${props => props.theme.color.secondaryOpaque};
         margin-bottom: 32px ;
+       
+       
     }
 
     @media screen and (max-width: ${props => props.theme.screen.lg}){

@@ -1,29 +1,34 @@
 import { Link } from "react-router-dom";
 import { Copyright, HomeContainer, Wallets, WelcomeSection } from "./homeStyles";
 
-import logo from '../../assets/logo.png';
 import { withTheme } from 'styled-components';
 import MainButton from './../../components/button/button';
 import Modal from "../../components/modal/modal";
 import { useState } from "react";
 import WalletCard from './../../components/walletCard/walletCard';
 
-import metamask from '../../assets/metamask.png';
-import walletConnect from '../../assets/walletConnect.png';
-import { SetCurrentUser } from "../../redux/user/userActions";
-import { connect } from 'react-redux';
+import {  useDispatch } from 'react-redux';
+import { UserActions } from "../../redux/user/userReducer";
 import homeArt from '../../assets/home_art.png';
 import homePages from '../../assets/home_pages.png';
+import walletConnect from '../../assets/walletConnect.png';
+import metamask from '../../assets/metamask.png';
+import logo from '../../assets/logo.png';
 
 const Home = (props) => {
     const [modalShow, setModalShow] = useState(false)
 
+    const dispatch = useDispatch()
+
+
     const useConnectWallet = () => {
-        props.setUser({
+     
+        dispatch(UserActions.setCurrentUser({
             name: "John Doe",
             createdSites: false,
             templateID: "lma15"
-        })
+        }))
+
         setModalShow(false)
     }
 
@@ -71,9 +76,6 @@ const Home = (props) => {
 }
 
 
-const mapDispatchToProps = dispatch => ({
-    setUser: (user) => dispatch(SetCurrentUser(user))
-})
 
 
-export default connect(null,mapDispatchToProps)(withTheme(Home)) 
+export default withTheme(Home)

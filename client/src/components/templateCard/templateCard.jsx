@@ -4,9 +4,21 @@ import { Buttons, CardContainer, Tags } from './templateCardStyles';
 
 import cardImg from '../../assets/cardImg.png';
 import MainButton from '../button/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { UserActions } from '../../redux/user/userReducer';
+import { nanoid } from '@reduxjs/toolkit';
 
 const TemplateCard = (props) => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleTemplateSelection = () => {
+        dispatch(UserActions.setTemplateId(nanoid()))
+        navigate("/edit")
+    }
+
     return(
         <CardContainer theme={props.theme}>
             <img src={cardImg} alt="template" />
@@ -18,9 +30,9 @@ const TemplateCard = (props) => {
             </Tags>
             <Buttons>
                 <MainButton >
-                    <Link to="/dashboard">
+                    <span onClick={() => handleTemplateSelection()} >
                         Select
-                    </Link>
+                    </span>
                 </MainButton>
                 <Link to="/preview">
                     Preview
