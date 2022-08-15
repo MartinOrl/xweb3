@@ -9,11 +9,11 @@ import WalletCard from './../../components/walletCard/walletCard';
 
 import {  useDispatch } from 'react-redux';
 import { UserActions } from "../../redux/user/userReducer";
-import homeArt from '../../assets/home_art.png';
-import homePages from '../../assets/home_pages.png';
-import walletConnect from '../../assets/walletConnect.png';
-import metamask from '../../assets/metamask.png';
-import logo from '../../assets/logo.png';
+import homeArt from '../../assets/home_art.webp';
+import homePages from '../../assets/home_pages.webp';
+import walletConnect from '../../assets/walletConnect.webp';
+import metamask from '../../assets/metamask.webp';
+import logo from '../../assets/logo.webp';
 
 const Home = (props) => {
     const [modalShow, setModalShow] = useState(false)

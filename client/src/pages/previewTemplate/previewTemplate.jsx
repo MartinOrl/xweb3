@@ -4,7 +4,7 @@ import styled, { withTheme } from 'styled-components';
 
 import MainButton from '../../components/button/button';
 import Logo from './../../components/logo/logo';
-import template from '../../assets/template.png';
+import template from '../../assets/template.webp';
 import { useState } from 'react';
 import Modal from '../../components/modal/modal';
 import RenderIf from './../../components/renderIf/renderIf';

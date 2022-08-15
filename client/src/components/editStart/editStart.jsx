@@ -5,7 +5,7 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 import { Buttons, Container, StartForm } from "./editStartStyles";
 
-import exampleImg from '../../assets/example.png';
+import exampleImg from '../../assets/example.webp';
 import { useDispatch } from 'react-redux';
 import { useState } from "react";
 import { UserActions } from './../../redux/user/userReducer';

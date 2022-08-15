@@ -2,7 +2,7 @@
 import { withTheme } from 'styled-components';
 import { Buttons, CardContainer, Tags } from './templateCardStyles';
 
-import cardImg from '../../assets/cardImg.png';
+import cardImg from '../../assets/cardImg.webp';
 import MainButton from '../button/button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

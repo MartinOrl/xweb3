@@ -3,7 +3,7 @@ import BuilderHeader from "../../components/builderComponents/builderHeader/buil
 import BuilderSidebar from '../../components/builderComponents/sidebar/sidebar';
 import styled from "styled-components";
 import RenderIf from './../../components/renderIf/renderIf';
-import template from '../../assets/template.png'
+import template from '../../assets/template.webp'
 
 const BuilderContainer = styled.div`
     display: flex;

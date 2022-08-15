@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import exampleImg from '../../assets/example.png'
+import exampleImg from '../../assets/example.webp'
 import MainButton from '../button/button'
 
 const ExampleContainer = styled.div`
