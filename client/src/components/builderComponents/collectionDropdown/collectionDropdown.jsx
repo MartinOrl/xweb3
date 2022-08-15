@@ -7,16 +7,24 @@ const OverflowContainer = styled.div`
     height: 56px;
     overflow: visible;
     margin-right: 32px;
+    width: 100%;
+    max-width: 240px;
+    min-width: 200px;
+    position: relative;
+    z-index: 26;
 `
 
 export const DropdownContainer = styled.div`
     min-height: 56px;
+    width: 100%;
     max-height: ${props => props.dropdown ? '920px' : '0'};
-    margin: 0 0 0 32px;
+    
     transition: 700ms ease-in-out;
     border-radius: 8px;
     overflow: hidden;
     background: #fff;
+    box-shadow: ${props => props.dropdown ? '3px 4px 8px rgba(0, 0, 0, 0.13)' : 'none'};
+
     color: ${props => props.theme.color.secondary};
     cursor: pointer;
     &>span{
@@ -31,9 +39,9 @@ export const DropdownContainer = styled.div`
 `
 
 export const ActiveURL = styled.div`
-    
-    display: flex;
 
+    display: flex;
+    
     height: 56px;
     align-items: center;
     transition: 300ms ease-in-out;
@@ -46,16 +54,17 @@ export const ActiveURL = styled.div`
 export const URLItem = styled.div`
     padding: 8px 16px;
     transition: 300ms ease-in-out;
- 
+    width: 100%;
     p{
         font-weight: 500;
         margin: 0;
         &:first-of-type{
             opacity: 0.75;
-            margin: 0 0 6px;
+      
             display: flex;
             align-items: center;
-            column-gap: 72px;
+            
+            justify-content: space-between;
             svg{
                 transform: ${props => props.dropdown ? 'rotate(180deg)' : 'rotate(0deg)'};
                 transition: 300ms ease-in-out;

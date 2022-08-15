@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const ButtonContainer = styled.p`
     
@@ -18,6 +17,8 @@ export const ButtonContainer = styled.p`
         align-items: center;
         column-gap: 16px;
         cursor: pointer;
+        box-shadow: none;
+        border: none;
         &:hover{
             background: ${props => props.theme.color.primaryHover} ;
         }

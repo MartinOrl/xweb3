@@ -26,7 +26,7 @@ const Home = (props) => {
         dispatch(UserActions.setCurrentUser({
             name: "John Doe",
             createdSites: false,
-            templateID: "lma15"
+            templateID: false
         }))
 
         setModalShow(false)

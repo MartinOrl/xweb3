@@ -1,24 +1,24 @@
 import { Routes, Route, useNavigate, useLocation } from 'react-router';
 import './App.css';
 import Home from './pages/home/home';
-import { createStructuredSelector } from 'reselect';
-import { selectActiveUser } from './redux/user/userSelectors';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Dashboard from './pages/dashboard/dashboard';
 import PreviewTemplate from './pages/previewTemplate/previewTemplate';
 import EditPage from './pages/edit/edit';
+import { selectActiveUser } from './redux/user/userReducer';
 
 
-function App({user}) {
+function App() {
 
 
   const navigate = useNavigate()
   const location = useLocation()
+  const user = useSelector(selectActiveUser)
 
 
   useEffect(() => {
-    // checks if user is logged in and redirects to dashboard if true else to home
+    // checks if user is logged in and redirects to dashboard directly instead of wallet connect page if true
     if(user){
       if(location.pathname === "/"){
         navigate('/dashboard')
@@ -31,7 +31,7 @@ function App({user}) {
     return () => {
       console.log("unmounting")
     }
-  }, [user])
+  }, [user, location.pathname, navigate])
 
   useEffect(() => {
     window.scrollTo(0,0,{behavior: 'smooth'})
@@ -54,8 +54,6 @@ function App({user}) {
   );
 }
 
-const mapStateToProps = createStructuredSelector({
-  user: selectActiveUser
-})
 
-export default connect(mapStateToProps,null)(App);
+
+export default App;

@@ -6,12 +6,13 @@ import MainButton from '../button/button'
 
 const ExampleContainer = styled.div`
     width: 48%;
-    min-width: 560px;
+    min-width: 420px;
     aspect-ratio: 16/9;
     height: auto;
     position: relative;
     border-radius: 8px;
     overflow: hidden;
+    flex-grow: 2;
     img{
         width: 100%;
         height: 100%;
@@ -42,6 +43,10 @@ const ExampleContainer = styled.div`
                 padding: 16px 32px;
             }
         }
+    }
+    @media screen and (max-width: ${props => props.theme.screen.sm}){
+        min-width: 100%;
+    
     }
 
 `

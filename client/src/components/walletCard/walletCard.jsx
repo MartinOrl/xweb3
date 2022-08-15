@@ -32,7 +32,7 @@ const WalletContainer = styled.div`
         }
     }
     @media screen and (max-width: ${props => props.theme.screen.md}){
-        width: 80%;
+        width: 100%;
     }
 `
 

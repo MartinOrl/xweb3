@@ -29,6 +29,7 @@ export const ModalContent = styled.div`
     @media screen and (max-width: ${props => props.theme.screen.md}){
         width: 80%;
         padding: 48px 48px 64px;
+        top: 48px;
     }
     @media screen and (max-width: ${props => props.theme.screen.sm}){
         padding: 40px 32px 56px;
@@ -57,9 +58,16 @@ export const ModalHeading = styled.div`
     }
     svg{
         position: absolute;
-        right: 0;
-        top: 0 ;
+        right: -40px;
+        top: -48px ;
+        background: #fff;
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        box-shadow: ${props => props.theme.shadow.card};
         cursor: pointer ;
+        width: 40px;
+        height: 40px;
     }
     @media screen and (max-width: ${props => props.theme.screen.md}){
         p{
@@ -68,17 +76,9 @@ export const ModalHeading = styled.div`
         h1{
             width: 70%;
         }
-        svg{
-            right: -16px;
-            top: -4px;
-        }
+        margin-bottom: 32px;
     }
     @media screen and (max-width: ${props => props.theme.screen.sm}){
-        svg{
-            right: 0;
-            top: 4px;
-            width: 32px;
-            height: 32px;
-        }
+       
     }
 `

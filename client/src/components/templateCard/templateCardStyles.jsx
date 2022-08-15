@@ -7,6 +7,7 @@ export const Tags = styled.div`
     column-gap: 24px;
     row-gap: 16px;
     margin-bottom: 32px;
+
     p{
         padding: 8px 24px;
         box-sizing: border-box;
@@ -40,7 +41,7 @@ export const Buttons = styled.div`
 export const CardContainer = styled.div`
     padding: 24px;
     box-sizing: border-box;
-    width: 24%;
+    width: 100%;
     min-width: 300px;
     max-width: 360px;
     border-radius: 8px;

@@ -13,14 +13,22 @@ const SelectionContainer = styled.div`
             font-size: 48px;
             font-weight: 500;
             margin: 0 0 12px;
+            text-align: center;
         }
         p{
             color: ${props => props.theme.color.secondaryOpaque};
-            max-width: 80%;
-            width: 563px;
+            max-width: 563px;
+            width: 90%;
             text-align: center;
             margin: 0;
         }
+
+    }
+    &>div:last-of-type{
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: 56px;
+        justify-content: center;
 
     }
 `
@@ -33,6 +41,9 @@ const SelectTemplate = (props) => {
                 <p>Connect your wallet, create an account and build your very own NFT website. It's this simple.</p>
             </div>
             <div>
+                <TemplateCard />
+                <TemplateCard />
+                <TemplateCard />
                 <TemplateCard />
             </div>
         </SelectionContainer>

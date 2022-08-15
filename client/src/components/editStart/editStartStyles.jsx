@@ -8,10 +8,11 @@ export const Buttons = styled.div`
     margin-top: 96px;
     &>p:last-of-type{
         color: ${props => props.theme.color.secondaryOpaque};
-        a{
+        span{
             color: ${props => props.theme.color.primary};
             margin-right: 8px ;
             font-weight: 500;
+            cursor: pointer;
         }
     }
     &>p:first-of-type>*{

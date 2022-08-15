@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { withTheme } from "styled-components";
 import MainButton from "../button/button";
 import Footer from "../footer/footer";
@@ -17,6 +17,7 @@ const WebsiteEntryform = (props) => {
     const [domain, setDomain] = useState("")
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -25,9 +26,12 @@ const WebsiteEntryform = (props) => {
         setSitename("")
         setDomain("")
         dispatch(UserActions.setTemplateDetails(formDataObj))
-        
     }
 
+    const handleTemplateChangeRequest = () => {
+        dispatch(UserActions.setTemplateId(false))
+        navigate("/dashboard?select=select")
+    }
 
     return(
         <StartForm onSubmit={(e) => handleSubmit(e)} >
@@ -46,9 +50,9 @@ const WebsiteEntryform = (props) => {
                     
                 </MainButton>
                 <p>
-                    <Link to="/dashboard?select=select">
+                    <span  onClick={ () => handleTemplateChangeRequest() }>
                         Change
-                    </Link>
+                    </span>
                     Template
                 </p>
             </Buttons>
@@ -60,15 +64,7 @@ const WebsiteEntryform = (props) => {
 
 const EditStart = (props) => {
 
-    const dispatch = useDispatch()
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const formData = new FormData(e.target)
-        const formDataObj = Object.fromEntries(formData)
-        console.log(formDataObj)
-        
-    }
+   
 
     return(
         <>

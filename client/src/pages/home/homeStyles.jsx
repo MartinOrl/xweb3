@@ -8,7 +8,7 @@ export const Wallets = styled.div`
     @media screen and (max-width: ${props => props.theme.screen.md}){
         flex-direction: column;
         align-items: center;
-        row-gap: 48px
+        row-gap: 32px
     }
 
 `

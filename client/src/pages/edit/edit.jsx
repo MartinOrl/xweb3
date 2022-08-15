@@ -1,31 +1,31 @@
 import EditStart from "../../components/editStart/editStart";
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useSelector } from 'react-redux';
 import { selectActiveUser } from "../../redux/user/userReducer";
 import WebsiteBuilder from './builder';
+import RenderIf from "../../components/renderIf/renderIf";
 
 
 const EditPage = () => {
 
     const userTemplateDetails = useSelector(selectActiveUser)?.templateDetails
 
-    useEffect(() => {
-        console.log(userTemplateDetails)
-        return () => {
-            console.log("Cleanup")
-        }
-    }, [])
+    // useEffect(() => {
+    //     console.log(userTemplateDetails)
+    //     return () => {
+    //         console.log("Cleanup")
+    //     }
+    // }, [])
 
     return(
         <>  
-            {
-                userTemplateDetails
-                ?
+
+            <RenderIf isTrue={userTemplateDetails} > 
                 <WebsiteBuilder />
-                :
+            </RenderIf>
+
+            <RenderIf isTrue={!userTemplateDetails} >
                 <EditStart />
-            }
+            </RenderIf>
       
         </>
     )

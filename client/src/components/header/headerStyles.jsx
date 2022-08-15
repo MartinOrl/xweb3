@@ -92,6 +92,53 @@ export const Collapsible = styled.div`
 
 `
 
+export const UserDropdown = styled.div`
+    height: 48px;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &>div{
+        &:last-of-type{
+            position: absolute;
+            bottom: ${props => props.userMenuDrop ? '-72px' : '-24px'};
+            left: 0;
+            max-height: ${props => props.userMenuDrop ? '96px' : '0'};
+            overflow: hidden;
+            transition: 300ms ease-in-out;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: ${props => props.userMenuDrop ? props.theme.shadow.card : '0px 0px 0px rgba(0,0,0,0)'};
+            p{
+                padding: 16px 32px;
+                box-sizing: border-box;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                column-gap: 16px;
+                background: #fff;
+                &, path{
+                    transition: 300ms ease-in-out;
+                    opacity: ${props => props.userMenuDrop ? '1' : '0'};
+                
+                }
+                &:hover{
+                    background: ${props => props.theme.color.secondary};
+                    color: #fff;
+                    
+                    svg path{
+                        fill: #fff;
+                    }
+                }
+            }
+
+        }
+    }
+
+`
+
+
+
 export const HeaderContainer = styled.header`
     display: flex;
     justify-content: space-between;
