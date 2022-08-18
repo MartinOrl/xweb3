@@ -9,13 +9,6 @@ const EditPage = () => {
 
     const userTemplateDetails = useSelector(selectActiveUser)?.templateDetails
 
-    // useEffect(() => {
-    //     console.log(userTemplateDetails)
-    //     return () => {
-    //         console.log("Cleanup")
-    //     }
-    // }, [])
-
     return(
         <>  
 

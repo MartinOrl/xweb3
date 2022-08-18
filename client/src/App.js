@@ -29,14 +29,14 @@ function App() {
  
     }
     return () => {
-      console.log("unmounting")
+      
     }
   }, [user, location.pathname, navigate])
 
   useEffect(() => {
     window.scrollTo(0,0,{behavior: 'smooth'})
     return () => {
-      console.log("unmount scroll")
+      
     }
   }, [location.pathname])
 

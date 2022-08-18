@@ -81,6 +81,7 @@ export const URLItem = styled.div`
 const CollectionDropdown = (props) => {
 
     const [dropdown, setDropdown] = useState(false)
+    const [activeCollection, setActiveCollection] = useState("Testnet Rinkeby")
 
     return (
         <OverflowContainer>
@@ -88,7 +89,7 @@ const CollectionDropdown = (props) => {
                 <ActiveURL onClick={() => setDropdown(!dropdown)} theme={props.theme}>
                     <URLItem dropdown={dropdown}>
                         <p>
-                            Testnet Rinkeby
+                            {activeCollection}
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                 <path fill="none" stroke="#93a1b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m4 9l8 8l8-8"/>
                             </svg>
@@ -98,10 +99,19 @@ const CollectionDropdown = (props) => {
                     </URLItem>
                 </ActiveURL>
                 <span></span>
-                <URLItem>
-                    <p>Mint</p>
-                    <p></p>
-                </URLItem>
+                {
+                    ["Testnet Rinkeby", "Mainnet", "Ropsten", "Kovan", "Rinkeby"].map((item, index) => {
+                        if(item !== activeCollection){
+                            return (
+                                <URLItem key={index} onClick={() => { setActiveCollection(item); setDropdown(false) }}>
+                                    <p>{item}</p>
+                                </URLItem>
+                            )
+                        }
+                        return null
+                       
+                    } )
+                }
             </DropdownContainer>
   
         </OverflowContainer>

@@ -68,7 +68,7 @@ const SidebarTemplates = (props) => {
             props.action(false)
         }
         return () =>{
-            console.log("Cleanup")
+            
         }
     }, [activeOption,props])
 

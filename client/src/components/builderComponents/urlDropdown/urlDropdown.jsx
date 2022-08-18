@@ -105,6 +105,7 @@ export const URLItem = styled.div`
 const URLDropdown = (props) => {
 
     const [dropdown, setDropdown] = useState(false)
+    const [activeURL, setActiveURL] = useState("Homepage")
 
     return (
         <OverflowContainer>
@@ -112,7 +113,7 @@ const URLDropdown = (props) => {
                 <ActiveURL onClick={() => setDropdown(!dropdown)} dropdown={dropdown}>
                     <URLItem>
                         <p>
-                            Homepage
+                            {activeURL}
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                                 <path fill="none" stroke="#93a1b5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m4 9l8 8l8-8"/>
                             </svg>
@@ -123,10 +124,20 @@ const URLDropdown = (props) => {
                     </URLItem>
                 </ActiveURL>
                 <span></span>
-                <URLItem>
-                    <p>Mint</p>
-                    <p></p>
-                </URLItem>
+                {
+                    ["Mint", "About", "Privacy Policy", "Terms of Service"].map((item, index) => {
+                        if(item !== activeURL){
+                            return (
+                                <URLItem key={index} onClick={() => { setActiveURL(item); setDropdown(false)}}>
+                                    <p>{item}</p>
+                                    <p></p>
+                                </URLItem>
+                            )
+                        }
+                        return null
+                        
+                    } )
+                }
             </DropdownContainer>
   
         </OverflowContainer>
